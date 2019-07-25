@@ -12,11 +12,13 @@ function readyNow() {
 }
 
 const buttonHandler = () => {
+  //buttonHandler fetches color of button, then uses that to run addBlock function with that color
   let color = event.target.id.replace(/Button/, '');
+  addBlock(color);
 };
 
 const addBlock = color => {
+  /* addBlock adds a block of color passed in to the DOM blockContainer element. */
   console.log(`adding block of color ${color}`);
-  let targetElem = $('blockContainer');
-  targetElem.append(`<li class="${color} block"></li>`);
+  $('#blockContainer').append(`<li class="${color} block"></li>`);
 };
