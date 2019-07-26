@@ -10,17 +10,18 @@ function handleReady() {
 	$('#blueButton').on('click', handleClick);
 	$('#greenButton').on('click', handleClick);
 	$('#blockContainer').on('click', '.block', handleDelete);
-	$('#customButton').on('click', handleToggle);
-	$('#customAdd').on('click', handleCustom);
-	$('#customAdd').on('click', handleToggle);
+	$('#customButton').on('click', handleButtonToggle);
+	$('#customAdd').on('click', handleCustomInput);
+	$('#customAdd').on('click', handleButtonToggle);
 	$('#customInputContainer').hide();
 }
 
 function handleClick() {
 	//handleClick fetches color of button, then uses that to run addBlock function with that color
 	let color = event.target.id.replace(/Button/, '');
-	addBlock(color);
-	countBlocks(color);
+	// determine color name based on what button is clicked
+	addBlock(color); // add blocks for color
+	countBlocks(color); // update block count for color
 }
 
 function handleDelete() {
@@ -30,30 +31,35 @@ function handleDelete() {
 	countBlocks(color);
 }
 
-function handleToggle() {
+function handleButtonToggle() {
 	//toggles the custom input button/input fields
 	$('#customInputContainer').toggle('fast');
 	$('#revealCustom').toggle('fast');
 }
 
-function handleCustom() {
+function handleCustomInput() {
 	//custom input handler -- fetches vals from num and select fields and adds blocks requested
 	let num = $('#numberOfBlocks').val();
 	let color = $('#colorSelect').val();
+
 	if (!num) {
-		num = 0;
+		num = 0; // ensures that num input is 0
 	}
 	if (!color) {
 		alert('Block color must be selected');
-		return;
+		return; // user must select a color
 	}
+
 	while (num > 0) {
 		addBlock(color);
-		countBlocks(color);
 		num--;
-	}
+	} // adds blocks to display
+
+	countBlocks(color); //updates block count for new blocks
+
 	$('#numberOfBlocks').val('');
 	$('#colorSelect').val('');
+	//empties fields
 }
 
 function addBlock(color) {
@@ -63,18 +69,21 @@ function addBlock(color) {
 }
 
 function countBlocks(color) {
+	//counts total blocks of color param, updates button face based on count.
+	//face shows either COLORNAME or if >0 num of blocks with block color as background
 	let counter = 0;
-	// increase counter for every li with class containing the color
 	$('.block').each(function() {
 		if ($(this).hasClass(`${color}`)) {
 			counter++;
 		}
-	});
-	//update the button-face based on the number of blocks.
+	}); //increments counter for each block with class matching color param
+
 	let buttonId = $(`#${color}Button`);
 	if (counter >= 1) {
+		//changes button text to block counter with background color of block color represented
 		buttonId.text(counter).addClass(`${color} clicked`);
 	} else {
+		//changes button text back to COLOR if no blocks are shown
 		buttonId.text(color.toUpperCase()).removeClass();
 	}
 }
