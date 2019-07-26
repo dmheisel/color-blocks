@@ -27,6 +27,8 @@ function handleClick() {
 function handleDelete() {
 	//handleDelete deletes the block item clicked and updates the color count
 	let color = this.className.split(' ')[0];
+	//blocks have class of ${color} block
+	//this splits the classname at ' ' and returns the first word.
 	$(this).remove();
 	countBlocks(color);
 }
