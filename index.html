@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="bootstrap.css" />
 		<link rel="stylesheet" href="styles.css" />
 		<script src="jquery-3.4.1.min.js"></script>
 		<script src="script.js"></script>
@@ -11,7 +12,7 @@
 	</head>
 	<body>
 		<header>
-			<div id="titleContainer" class="container">
+			<div id="titleContainer" class="jumbotron">
 				<h1 id="easterEggClicker">Color-Blocks Assignment</h1>
 				<h4>
 					Add colors by pushing a button!<br />
@@ -19,13 +20,15 @@
 				</h4>
 			</div>
 			<div id="buttonContainer" class="container">
-				<button id="redButton">RED</button>
-				<button id="yellowButton">YELLOW</button>
-				<button id="greenButton">GREEN</button>
-				<button id="blueButton">BLUE</button>
+				<button id="redButton" class="btn btn-danger">RED</button>
+				<button id="yellowButton" class="btn btn-warning">YELLOW</button>
+				<button id="greenButton" class="btn btn-success">GREEN</button>
+				<button id="blueButton" class="btn btn-primary">BLUE</button>
 			</div>
 			<div id="revealCustom" class="container">
-				<button id="customButton">Custom Input</button>
+				<button id="customButton" class="btn btn-outline-info">
+					Custom Input
+				</button>
 			</div>
 			<div id="customInputContainer" class="container">
 				<input type="number" id="numberOfBlocks" min="0" , placeholder="0" />
@@ -36,7 +39,7 @@
 					<option value="blue">Blue</option>
 					<option value="green">Green</option>
 				</select>
-				<button id="customAdd">Add block!</button>
+				<button id="customAdd" class="btn btn-outline-info">Add block!</button>
 			</div>
 		</header>
 		<main>

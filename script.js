@@ -84,7 +84,7 @@ function countBlocks(color) {
 	let buttonId = $(`#${color}Button`);
 	if (counter >= 1) {
 		//changes button text to block counter with background color of block color represented
-		buttonId.text(counter).addClass(`${color} clicked`);
+		buttonId.text(counter).addClass(`clicked`);
 	} else {
 		//changes button text back to COLOR if no blocks are shown
 		buttonId.text(color.toUpperCase()).removeClass();

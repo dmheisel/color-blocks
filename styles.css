@@ -21,7 +21,7 @@ input {
 label {
 	display: inline-block;
 }
-.container {
+/* .container {
 	display: flex;
 	flex-wrap: wrap;
 	width: auto;
@@ -30,7 +30,7 @@ label {
 	justify-items: center;
 	justify-content: center;
 	margin: 5px 15%;
-}
+} */
 .clicked {
 	color: white;
 }
@@ -58,10 +58,10 @@ label {
 	background-color: blue;
 }
 
-#titleContainer {
+/* #titleContainer {
 	display: block;
 	text-align: center;
-}
+} */
 
 #redButton:hover {
 	background-color: red;
@@ -81,10 +81,10 @@ label {
 	background-color: blue;
 	color: white;
 }
-
+/*
 #colorBlockContainer {
 	padding: 15px;
 	margin: 10px;
 	width: auto;
 	height: auto;
-}
+} */
