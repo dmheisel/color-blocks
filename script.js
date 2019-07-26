@@ -10,19 +10,47 @@ function handleReady() {
 	$('#blueButton').on('click', handleClick);
 	$('#greenButton').on('click', handleClick);
 	$('#blockContainer').on('click', '.block', handleDelete);
+	$('#customButton').on('click', handleToggle);
+	$('#customAdd').on('click', handleCustom);
+	$('#customAdd').on('click', handleToggle);
+	$('#customInputContainer').hide();
 }
 
-const handleClick = () => {
+function handleClick() {
 	//handleClick fetches color of button, then uses that to run addBlock function with that color
 	let color = event.target.id.replace(/Button/, '');
 	addBlock(color);
 	countBlocks(color);
-};
+}
 
 function handleDelete() {
 	let color = this.className.split(' ')[0];
 	$(this).remove();
 	countBlocks(color);
+}
+
+function handleToggle() {
+	$('#customInputContainer').toggle('fast');
+	$('#revealCustom').toggle('fast');
+}
+
+function handleCustom() {
+	let num = $('#numberOfBlocks').val();
+	let color = $('#colorSelect').val();
+	if (!num) {
+		num = 0;
+	}
+	if (!color) {
+		alert('Block color must be selected');
+		return;
+	}
+	while (num > 0) {
+		addBlock(color);
+		countBlocks(color);
+		num--;
+	}
+	$('#numberOfBlocks').val('');
+	$('#colorSelect').val('');
 }
 
 function addBlock(color) {
