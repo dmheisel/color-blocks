@@ -24,17 +24,20 @@ function handleClick() {
 }
 
 function handleDelete() {
+	//handleDelete deletes the block item clicked and updates the color count
 	let color = this.className.split(' ')[0];
 	$(this).remove();
 	countBlocks(color);
 }
 
 function handleToggle() {
+	//toggles the custom input button/input fields
 	$('#customInputContainer').toggle('fast');
 	$('#revealCustom').toggle('fast');
 }
 
 function handleCustom() {
+	//custom input handler -- fetches vals from num and select fields and adds blocks requested
 	let num = $('#numberOfBlocks').val();
 	let color = $('#colorSelect').val();
 	if (!num) {
