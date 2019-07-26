@@ -14,6 +14,7 @@ function handleReady() {
 	$('#customAdd').on('click', handleCustomInput);
 	$('#customAdd').on('click', handleButtonToggle);
 	$('#customInputContainer').hide();
+	$('#easterEggClicker').on('click', randomize);
 }
 
 function handleClick() {
@@ -87,5 +88,23 @@ function countBlocks(color) {
 	} else {
 		//changes button text back to COLOR if no blocks are shown
 		buttonId.text(color.toUpperCase()).removeClass();
+	}
+}
+
+function randomize() {
+	//easter egg func to add random blocks!
+	let colors = ['red', 'yellow', 'green', 'blue'];
+	let getRandomNumber = () => {
+		return Math.floor(Math.random() * 10);
+	};
+	for (let color of colors) {
+		console.log(color);
+		let numOfBlocks = getRandomNumber();
+		console.log(numOfBlocks);
+		while (numOfBlocks > 0) {
+			addBlock(color);
+			numOfBlocks--;
+		}
+		countBlocks(color);
 	}
 }
